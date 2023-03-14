@@ -1,0 +1,79 @@
+<div class="register">
+    <div class="row justify-content-center">
+<table>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="*Username">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="password" [(ngModel)]="password" ngModel pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" #uname="ngModel" placeholder="*Password">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="passwordcheck" [(ngModel)]="passwordcheck" placeholder="*Password check">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="ime" [(ngModel)]="ime" placeholder="*Ime">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="prezime" [(ngModel)]="prezime" placeholder="*Prezime">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="adresa" [(ngModel)]="adresa" placeholder="*Adresa">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="telefon" [(ngModel)]="telefon" ngModel required ngModel pattern="(\+)((381)([0-9]{8,9}))" #uname1="ngModel" placeholder="*Telefon">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="*Email">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="tip" [(ngModel)]="tip" placeholder="*Tip">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            Slika <input (change)="upload($event)" type="file">
+        </td>
+    </tr>
+    <tr align="center">
+        <div *ngIf="!uname.errors?.pattern">
+            <div *ngIf="!uname1.errors?.pattern">
+                <td>
+                    <div class="dugme">
+                    <button type="button" class="btn btn-primary btn-block mb-4" (click)="posaljiZahtev()">Register</button>
+                </div>
+                </td>
+            </div>
+        </div>
+    </tr>
+</table>
+    </div>
+    </div>
+    <div class="row justify-content-center"><div class="ob">* oznacena obavezna polja </div></div>
+    <div class="row justify-content-center" style="color: red; font-size: large;">
+    <div class="err1" *ngIf="uname.errors?.pattern"> 
+        Sifra je neodgovarajuca
+     </div> 
+    </div>
+    <div class="row justify-content-center" style="color: red; font-size: large;">
+    <div class="err2" *ngIf="uname1.errors?.pattern"> 
+        Telefonski broj mora pocinjati sa +381 i imati odgovarajuc broj cifara
+     </div> 
+    </div>
+    <div class="klasa3"><div class="row justify-content-center">{{message}}</div></div>

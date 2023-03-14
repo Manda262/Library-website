@@ -1,0 +1,32 @@
+<div class="login">
+<div class="row justify-content-center">
+<table>
+    <tr>
+        <td>
+            <div class="username">
+            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="username">
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="password">
+            <input type="text" class="form-control" name="password" [(ngModel)]="password" placeholder="password">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">login</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <a class="nav-link" routerLink="/adminLogin">Login as administrator</a>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+
+<div class="klasa3"><div class="row justify-content-center">{{message}}</div></div>

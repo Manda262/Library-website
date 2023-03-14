@@ -1,0 +1,81 @@
+<div class="content" *ngIf="currUser != null">
+  <div class="row justify-content-center">
+    <mat-card style=" background-color:#F0D8C3">
+        <mat-card-header>
+            <mat-card-title>
+              <div class="klasa1">
+              Knjiga dana
+            </div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <tr>
+                    <td>
+                      <div class="row justify-content-center">
+                        <div class="naslov">
+                          <div class="klasa">
+                        {{knjigaDana.naziv}}
+                      </div>
+                      </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr *ngFor="let autor of knjigaDana.autori">
+                    <td>
+                      <div class="row justify-content-center">
+                        <div class="klasa">
+                        {{autor.ime}} {{autor.prezime}}
+                      </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="row justify-content-center">
+                      <div class="klasa">
+                      {{prosecna()}}
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img [src]="slika">
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>
+<div *ngIf="currUser == null">
+  <div class="klasa3"><div class="row justify-content-center">Galerija</div></div>
+    <ngb-carousel *ngIf="image1 && image2 && image3" style="margin-right: 30%; margin-left: 30%;">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="image1" alt="Random first slide" style="width: 100%; height: 100%; max-height: 75vh;">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{ime1}}</h3>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="image2" alt="Random second slide" style="width: 100%; height: 100%; max-height: 75vh">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{ime2}}</h3>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="image3" alt="Random third slide" style="width: 100%; height: 100%;max-height: 75vh;" >
+          </div>
+          <div class="carousel-caption">
+            <h3>{{ime3}}</h3>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+

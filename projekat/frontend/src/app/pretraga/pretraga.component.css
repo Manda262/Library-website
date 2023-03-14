@@ -1,0 +1,26 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+
+mat-card:hover {
+    box-shadow: 0 0 2px 1px rgba(94, 67, 21, 0.5);
+}
+
+.content{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.makespace{
+    padding-top: 5px;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+}

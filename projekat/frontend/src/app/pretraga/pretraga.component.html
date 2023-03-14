@@ -1,0 +1,62 @@
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="16%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="50%" fxLayoutAlign=" stretch " *ngFor="let knjiga of sveNadjeneKnjige">
+<mat-card style="width: 250px; background-color:#F0D8C3; justify-self: center; justify-content: center;">
+        <a role="button" (click)="izabrano(knjiga.id)">
+        <mat-card-header>
+            <mat-card-title>
+                    <div class="klasa1">{{knjiga.naziv}}</div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <div class="makespace">Autori:</div>
+                <tr *ngFor="let autor of knjiga.autori">
+                    <td>
+                        <div class="klasa">
+                        {{autor.ime}} {{autor.prezime}}
+                    </div>
+                    </td>
+                </tr>
+                <tr></tr>
+                <div class="makespace">Zanrovi:</div>
+                <tr *ngFor="let zanr of knjiga.zanrovi">
+                    <td>
+                        <div class="klasa">
+                        {{zanr.zanr}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.izdavac}}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.godina}}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.jezik}}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img [src]="checkPic(knjiga)">
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </a>
+    </mat-card>
+</div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="16%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="50%" fxLayoutAlign=" stretch" *ngFor="let knjiga of sveZaduzeneKnjige">
+    <mat-card style="width: 250px; background-color:#F0D8C3;">
+        <mat-card-header>
+            <mat-card-title style="justify-content: center">{{knjiga.naziv}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <div class="makespace">Autori:</div>
+                <tr *ngFor="let autor of knjiga.autori">
+                    <td>
+                        {{autor.ime}} {{autor.prezime}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img [src]="checkPic(knjiga)">
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngIf="checkRet(knjiga.id)">
+                        Ostalo dana do isteka roka za vracanje: {{proveri(knjiga.id)}}
+                    </td>
+                    <td *ngIf="!checkRet(knjiga.id)">
+                        <span style="color: red;">Rok za vracanje knjige je prosao pre {{proveri(knjiga.id)}} dana!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="dugme">
+                        <button type="button" class="btn btn-warning btn-block mb-4" (click)="idi(knjiga.id)">Detalji o knjizi</button>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="dugme">
+                        <button type="button" class="btn btn-warning btn-block mb-4" (click)="razduzi(knjiga.id)">Razduzi knjigu</button>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>
+</div>
+<div class="errr">
+    <div class="row justify-content-center">
+    {{message}}</div>
+</div>

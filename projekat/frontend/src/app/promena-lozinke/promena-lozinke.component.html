@@ -1,0 +1,32 @@
+<div class="promena">
+    <div class="row justify-content-center">
+<table>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="stara" [(ngModel)]="stara" placeholder="Stara lozinka">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="nova" [(ngModel)]="nova" ngModel pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" #uname="ngModel" placeholder="Nova lozinka">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" name="novaponovo" [(ngModel)]="novaponovo" placeholder="Nova lozinka ponovo">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="potvrdi()">Potvrdi</button>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<div class="row justify-content-center" style="color: red; font-size: large;">
+<div class="err" *ngIf="uname.errors?.pattern"> 
+    Sifra je neodgovarajuca
+</div> 
+</div>
+<div class="klasa3"><div class="row justify-content-center">{{message}}</div></div>

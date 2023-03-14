@@ -1,0 +1,14 @@
+img{
+    max-width: 300px;
+    max-height: 480px;
+}
+
+.profil{
+    padding-top: 40px;
+}
+
+.klasa{
+    justify-content: center;
+    font-size: large;
+    padding-top: 8px;
+}

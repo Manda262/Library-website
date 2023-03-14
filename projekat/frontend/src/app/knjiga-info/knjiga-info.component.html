@@ -1,0 +1,178 @@
+<table>
+    <td>
+        <div class="pic">
+        <table *ngIf="!azuriranje">
+            <tr align="center">
+                <td style="font-size: medium;color: rgb(61, 21, 21);">
+                    Naziv: {{currKnjiga.naziv}}
+                </td>
+            </tr>
+            <div class="row justify-content-center" style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">Autori:</div>
+    <tr *ngFor="let autor of currKnjiga.autori" align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21);">
+            {{autor.ime}} {{autor.prezime}}
+        </td>
+    </tr>
+    <div class="row justify-content-center" style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">Zanrovi:</div>
+    <tr *ngFor="let zanr of currKnjiga.zanrovi" align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21);">
+            {{zanr.zanr}}
+        </td>
+    </tr>
+    <tr align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+            Izdavac: {{currKnjiga.izdavac}}
+        </td>
+    </tr>
+    <tr align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+            Godina: {{currKnjiga.godina}}
+        </td>
+    </tr>
+    <tr align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+            Jezik: {{currKnjiga.jezik}}
+        </td>
+    </tr>
+    <tr align="center">
+        <td style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+            Raspolozivost: {{trenutnaRaspolozivost}}
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            <img [src]="checkPic()">
+        </td>
+    </tr>
+    <tr align="center" *ngIf="uslov">
+        <td>
+            <button type="button" class="btn btn-warning btn-block mb-4" (click)="zaduzi()">Zaduzi</button>
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            <button type="button" class="btn btn-warning btn-block mb-4" *ngIf="isModerator()" (click)="azuriranjeUToku()">Azuriraj</button>
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            <div class="errr">
+                {{message}}
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+    </td>
+    <td>
+        <div class="klasa2">
+        <table *ngIf="azuriranje">
+            <tr>
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="currKnjiga.naziv">
+                </td>
+            </tr>
+            <tr *ngFor="let autor of currKnjiga.autori">
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="autor.ime">
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="autor.prezime">
+                </td>
+            </tr>
+            <tr *ngFor="let zanr of currKnjiga.zanrovi">
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="zanr.zanr">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="currKnjiga.izdavac">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="currKnjiga.godina">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="currKnjiga.jezik">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="trenutnaRaspolozivost">
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: medium;color: rgb(61, 21, 21);">Promeni sliku:
+                    <input (change)="upload($event)" type="file">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-warning btn-block mb-4" (click)="updatuj()">Zavrsi azuriranje</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </td>
+    <td>
+        <table>
+            <tr>
+                <td style="font-size: large;color: rgb(61, 21, 21); padding-top: 4px;">
+                    Prosecna ocena: {{prosecna()}}
+                </td>
+            </tr>
+            <tr *ngIf="vecOstavio()">
+                <td>
+                    Ocenite knjigu: <select [(ngModel)]="novaOcena">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button *ngIf="proverizaduzenje()"  type="button" class="btn btn-warning btn-lg mb-4" (click)="dodaj()">Dodaj recenziju</button>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <input type="text" [(ngModel)]="novKomentar" style="height: 100px; width: 350px">
+            </td>
+            </tr>
+            <tr>
+                <td><div class="errr">
+                    {{message1}}
+                </div></td>
+            </tr>
+        </table>
+    </td>
+    <td>
+        <div style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+            Sve recenzije:
+        </div>
+        <table *ngFor="let ocena of oceneOveKnjige">
+            <tr style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+                <td>
+                    {{ocena.username}}
+                </td>
+                <td>
+                    Ocena:{{ocena.ocena}}
+                </td>
+                <td>
+                    Datum: {{ocena.datum}}
+                </td>
+            </tr>
+            <tr style="font-size: medium;color: rgb(61, 21, 21); padding-top: 4px;">
+                <td>
+                    komentar: {{ocena.komentar}}
+                </td>
+            </tr>
+        </table>
+    </td>
+</table>

@@ -1,0 +1,24 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+.dug{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+    font-size: large;
+}
+
+.errr{
+    justify-content: center;
+    font-size: large;
+    color: rgb(61, 21, 21);
+}

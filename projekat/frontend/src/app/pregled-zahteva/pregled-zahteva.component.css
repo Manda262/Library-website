@@ -1,0 +1,19 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.content{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+    font-size: large;
+}

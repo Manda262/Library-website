@@ -1,0 +1,23 @@
+.content{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.makespace{
+    padding-top: 5px;
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+}
+
+.errr{
+    justify-content: center;
+    font-size: large;
+    color: rgb(61, 21, 21);
+}

@@ -1,0 +1,163 @@
+<div class="row justify-content-center" style="color: rgb(61, 21, 21);">Forma za dodavanje korisnika:</div>
+<div class="register">
+    <div class="row justify-content-center">
+<table>
+    <tr>
+        <td>
+            <input placeholder="*Username" type="text" class="form-control form-control-sm" name="username" [(ngModel)]="username">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Password" type="text" class="form-control form-control-sm" name="password" [(ngModel)]="password" ngModel pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" #uname="ngModel">
+            <div *ngIf="uname.errors?.pattern" style="color: red;"> 
+                Sifra je neodgovarajuca
+             </div> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Password check" type="text" class="form-control form-control-sm" name="passwordcheck" [(ngModel)]="passwordcheck">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Ime" type="text" class="form-control form-control-sm" name="ime" [(ngModel)]="ime">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Prezime" type="text" class="form-control form-control-sm" name="prezime" [(ngModel)]="prezime">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Adresa" type="text" class="form-control form-control-sm" name="adresa" [(ngModel)]="adresa">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Telefon" type="text" class="form-control form-control-sm" name="telefon" [(ngModel)]="telefon" ngModel required ngModel pattern="(\+)((381)([0-9]{8,9}))" #uname1="ngModel">
+            <div *ngIf="uname1.errors?.pattern" style="color: red;"> 
+                Telefonski broj mora pocinjati sa +381 i imati odgovarajuc broj cifara
+             </div> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Email" type="email" class="form-control form-control-sm" name="email" [(ngModel)]="email">
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="*Tip" type="text" class="form-control form-control-sm" name="tip" [(ngModel)]="tip">
+        </td>    
+    </tr>
+    <tr>
+        <td>Slika
+            <input type="file" (change)="upload($event)">
+        </td>
+    </tr>
+    <tr align="center">
+        <div *ngIf="!uname.errors?.pattern">
+            <div *ngIf="!uname1.errors?.pattern">
+                <td colspan="2">
+                    <button type="button" class="btn btn-warning btn-block mb-4" (click)="dodajKorisnika()">Dodaj korisnika</button>
+                </td>
+            </div>
+        </div>
+    </tr>
+</table>
+</div>
+</div>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="50%" fxLayoutAlign=" stretch" *ngFor="let citalac of sviCitaoci">
+    <mat-card style="width: 300px; background-color:#F0D8C3;">
+        <mat-card-header>
+            <mat-card-title><div class="klasa1">{{citalac.username}}
+            </div></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <img [src]="checkPic(citalac)">
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        Nova slika
+                        <input type="file" (change)="upload($event)">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <div class="klasa">
+                        {{citalac.ime}} {{citalac.prezime}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="citalac.ime">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="citalac.prezime">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <div class="klasa">
+                        {{citalac.adresa}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="citalac.adresa">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <div class="klasa">
+                        {{citalac.telefon}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="citalac.telefon">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <div class="klasa">
+                        {{citalac.email}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="citalac.email">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(citalac.username)">
+                    <td>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="azuriraj(citalac.username)">Azuriraj</button>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="izbrisi(citalac.username)">Izbrisi</button>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(citalac.username)">
+                    <td>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="zavrsiAzuriranje(citalac.username)">Zavrsi azuriranje</button>
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>
+</div>
+<div class="errr">
+    <div class="row justify-content-center">
+    {{message}}</div>
+</div>

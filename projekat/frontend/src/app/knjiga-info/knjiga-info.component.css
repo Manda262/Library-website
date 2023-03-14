@@ -1,0 +1,23 @@
+img{
+    max-width: 300px;
+    max-height: 480px;
+}
+
+.pic{
+    padding-left: 8px;
+    padding-top: 5px;
+}
+
+table{
+    width: 100%;
+}
+
+.klasa2{
+    padding-top: 20px;
+}
+
+.errr{
+    justify-content: center;
+    font-size: large;
+    color: rgb(61, 21, 21);
+}

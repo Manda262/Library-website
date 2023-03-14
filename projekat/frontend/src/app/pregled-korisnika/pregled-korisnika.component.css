@@ -1,0 +1,24 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+    font-size: large;
+}
+
+.nova{
+    max-width: 250px;
+}
+
+.errr{
+    justify-content: center;
+    font-size: large;
+    color: rgb(61, 21, 21);
+}

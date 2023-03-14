@@ -1,0 +1,88 @@
+<div class="profil">
+    <div class="row justify-content-center">
+<table *ngIf="currUser!=null">
+    <tr>
+        <td align="center">
+            <img [src]="checkPicUser()">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{currUser.username}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{currUser.ime}} {{currUser.prezime}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{currUser.adresa}}
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{currUser.telefon}}
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{currUser.email}}
+        </div>
+        </td>
+    </tr>
+</table>
+<table *ngIf="admin != null">
+    <tr>
+        <td align="center">
+            <img [src]="checkPicAdmin()">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{admin.username}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{admin.ime}} {{admin.prezime}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{admin.adresa}}
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{admin.telefon}}
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <div class="klasa">
+            {{admin.email}}
+        </div>
+        </td>
+    </tr>
+</table>
+</div>
+</div>

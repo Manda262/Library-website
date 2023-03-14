@@ -1,0 +1,34 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+
+picsum-img-wrapper{
+   align-content: center;
+}
+
+.content{
+    justify-content: center;
+    justify-self: center;
+    padding-top: 50px;
+}
+
+.naslov{
+    font-style: oblique;
+}
+
+.klasa{
+    font-size: medium;
+    color: rgb(61, 21, 21);
+}
+
+.klasa1{
+    color: rgb(61, 21, 21);
+}
+
+.klasa3{
+    font-size: large;
+    color: rgb(61, 21, 21);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

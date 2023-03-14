@@ -1,0 +1,20 @@
+.login{
+    padding-top: 10%;
+}
+
+.username{
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.password{
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.klasa3{
+    font-size: large;
+    color: rgb(61, 21, 21);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

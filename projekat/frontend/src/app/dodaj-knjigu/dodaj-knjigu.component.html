@@ -1,0 +1,89 @@
+<div class="dodaj">
+    <div class="row justify-content-center">
+<table>
+    <tr>
+        <td>
+            Naziv:
+            <input type="text" class="form-control" placeholder="naziv.." [(ngModel)]="naziv">
+        </td>
+    </tr>
+    <tr>
+        <td>autori:</td>
+        <div class="dod">
+        <td>dodati autori:</td>
+    </div>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" placeholder="ime..." [(ngModel)]="ime">
+            <input type="text" class="form-control" placeholder="prezime..." [(ngModel)]="prezime">
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="Dodajautora()">Dodaj</button>
+        </td>
+        <td>
+            <table>
+                <tr *ngFor="let autor of autori">
+                    <td>
+                        <div class="dod">
+                        {{autor.ime}} {{autor.prezime}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>zanrovi:</td>
+        <div class="dod">
+        <td>dodati zanrovi:</td>
+    </div>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" placeholder="zanr..." [(ngModel)]="zanrstr">
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="dodajzanr()">Dodaj</button>
+        </td>
+        <td>
+            <table>
+                <tr *ngFor="let zanr of zanrovi">
+                    <td>
+                        <div class="dod">
+                        {{zanr.zanr}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            izdavac: <input type="text" class="form-control" placeholder="izdavac.." [(ngModel)]="izdavac">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            godina: <input type="text" class="form-control" placeholder="godina.." [(ngModel)]="godina">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            jezik: <input type="text" class="form-control" placeholder="jezik.." [(ngModel)]="jezik">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            raspolozivost: <input type="text" class="form-control" placeholder="raspolozivost.." [(ngModel)]="raspolozivost">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            slika: <input (change)="upload($event)" type="file">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="unesi()">Unesi u bazu</button>
+        </td>
+    </tr>
+</table>
+</div>
+</div>

@@ -1,0 +1,132 @@
+<div class="dug">
+    <div class="row justify-content-center">
+<button type="button" class="btn btn-warning btn-lg mb-4" (click)="dodajKnjigu()">Dodaj knjigu</button>
+</div>
+</div>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="50%" fxLayoutAlign=" stretch" *ngFor="let knjiga of sveKnjige">
+    <mat-card style="width: 3000px; background-color:#F0D8C3;">
+        <mat-card-header>
+            <mat-card-title><div class="klasa1">{{knjiga.id}}</div></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <img [src]="checkPic(knjiga)">
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input (change)="upload($event)" type="file">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.naziv}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="knjiga.naziv">
+                    </td>
+                </tr>
+                <tr *ngFor="let autor of knjiga.autori">
+                    <td *ngIf="getFlag(knjiga.id)">
+                        <div class="klasa">
+                        {{autor.ime}} {{autor.prezime}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngFor="let autor of knjiga.autori">
+                    <td *ngIf="!getFlag(knjiga.id)">
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="autor.ime">
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="autor.prezime">
+                    </td>
+                </tr>
+                <tr *ngFor="let zanr of knjiga.zanrovi">
+                    <td *ngIf="getFlag(knjiga.id)">
+                        <div class="klasa">
+                        {{zanr.zanr}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngFor="let zanr of knjiga.zanrovi">
+                    <td *ngIf="!getFlag(knjiga.id)">
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="zanr.zanr">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.izdavac}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="knjiga.izdavac">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.godina}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="knjiga.godina">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <div class="klasa">
+                        {{knjiga.jezik}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="knjiga.jezik">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <div class="klasa">
+                        raspolozivost:{{getRasp(knjiga)}}
+                    </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <input class="form-control form-control-sm" type="text" [(ngModel)]="raspolozivost">
+                    </td>
+                </tr>
+                <tr *ngIf="getFlag(knjiga.id)">
+                    <td>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="azuriraj(knjiga.id)">Azuriraj</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="izbrisi(knjiga.id)">Izbrisi</button>
+                    </td>
+                </tr>
+                <tr *ngIf="!getFlag(knjiga.id)">
+                    <td>
+                        <button type="button" class="btn btn-warning btn-md mb-4" (click)="zavrsiAzuriranje(knjiga.id)">Zavrsi azuriranje</button>
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+    <div class="errr">
+        <div class="row justify-content-center">
+        {{message}}</div>
+    </div>
+</div>
+</div>
+</div>
